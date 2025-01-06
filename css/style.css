@@ -57,6 +57,7 @@ h1 {
     justify-self: center;
     margin: 1.875rem 0;
     border: 0;
+    width: 10.3125rem;
     background-color: #cd0000;
     color: #fff;
     font-size: .9375rem;
@@ -207,8 +208,8 @@ h1 {
 .form-add-images {
     display: flex;
     flex-direction: column;
-    max-width: 15%;
     margin: 0 auto;
+    width: 10.3125rem;
     /* display: none; */
 }
 
