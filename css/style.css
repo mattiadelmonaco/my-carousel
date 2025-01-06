@@ -13,6 +13,9 @@ body {
 main {
     margin: 2.5rem auto;
     max-width: 68.75rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 /* TYPOGRAPHY */
@@ -34,6 +37,7 @@ h1 {
     text-shadow: rgba(0, 0, 0, 0.24) 0px 2px 5px;
     transform: scale(1) ease-out;
     transition: 0.4s;
+    margin: 0 .3125rem;
 }
 
 .arrow-buttons:hover {
@@ -80,12 +84,14 @@ h1 {
     background-color: transparent;
     transform: scale(1) ease-out;
     transition: 0.4s;
+    opacity: 0.5;
 }
 
 .btn-img:hover {
     cursor: pointer;
     transform: scale(1.1);
     transition: 0.4s;
+    opacity: 1;
 }
 
 .btn-img:active {
@@ -167,7 +173,7 @@ h1 {
 }
 
 .current-image--image {
-    margin: 0 2.5rem;
+    margin: 0 .625rem;
     margin-bottom: .625rem;
     border-radius: .625rem;
 }
@@ -175,12 +181,13 @@ h1 {
 .img-list {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
-    gap: 1.25rem;
+    justify-content: center;
+    gap: .9375rem;
     list-style: none;
 }
 
 .img-list img {
-    width: 100%;
+    width: 12.5rem;
     height: 9.375rem;
     object-fit: cover;
     border-radius: .625rem;
@@ -190,9 +197,79 @@ h1 {
 .container-img p {
     position: absolute;
     bottom: 2.1875rem;
-    right: 2.8125rem;
+    right: .9375rem;
     color: #fff;
     font-size: 1.25rem;
     font-weight: bold;
     text-shadow: rgba(0, 0, 0, 0.24) 0px 2px 5px;
+}
+
+.form-add-images {
+    display: flex;
+    flex-direction: column;
+    max-width: 15%;
+    margin: 0 auto;
+    /* display: none; */
+}
+
+#img-name, #img-url {
+    outline: none;
+    border-radius: .3125rem;
+}
+
+#img-name:focus, #img-url:focus {
+    border: 2px solid #880202;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/* RESPONSIVE - DESKTOP FIRST */
+
+/* MOBILE <= 767px */
+
+@media screen and (max-width: 47.9375rem) {
+    .img-list {
+        grid-template-columns: auto auto
+    }
+
+    .current-image {
+        width:100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .current-image--image {
+        max-width: 100%; 
+        border-radius: .625rem; 
+    }
+
+    .container-img p {
+        font-size: .9375rem;
+    }
+}
+
+/* TABLET 768px to 1100px */
+
+@media screen and (min-width: 768px) {
+    .img-list {
+        grid-template-columns: auto auto auto
+    }
+
+    .current-image {
+        width:100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .current-image--image {
+        max-width: 100%; 
+        border-radius: .625rem; 
+    }
+}
+
+/* DESKTOP 1100px to >= */
+
+@media screen and (min-width: 1100px) {
+    .img-list {
+        grid-template-columns: auto auto auto auto auto
+    }
 }
