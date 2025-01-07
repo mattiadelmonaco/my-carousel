@@ -5,7 +5,7 @@ function updateImage() {
     carouselElm.innerHTML = `
         <img class="current-image--image" src="${img}" alt="${nome}">
         <p>${nome}</p>
-    `;
+    `
 }
 
 function updateImageList() {
@@ -15,15 +15,15 @@ function updateImageList() {
             <img class="opacity" src="${image.img}" alt="${image.nome}">
         </button>
     </li>
-    `).join("");
+    `).join("")
 
     document.querySelectorAll(".btn-img").forEach(button => {
         button.addEventListener("click", (event) => {
-            const index = parseInt(event.currentTarget.getAttribute("data-index"));
-            currentIndex = index;
-            updateImage();
-        });
-    });
+            const index = parseInt(event.currentTarget.getAttribute("data-index"))
+            currentIndex = index
+            updateImage()
+        })
+    })
 }
 
 // DOM ELEMENTS 
@@ -80,24 +80,26 @@ const images = [
 
 // LOGIC 
 
+// when page load
+
 document.addEventListener("DOMContentLoaded", () => {
     updateImage()
     updateImageList()
 });
 
-let currentIndex = 0;
-
 // click arrows
+
+let currentIndex = 0;
 
 arrowRightElm.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % images.length
     updateImage()
-});
+})
 
 arrowLeftElm.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + images.length) % images.length
     updateImage()
-});
+})
 
 // autoplay
 
@@ -105,9 +107,9 @@ autoPlayBtnElm.addEventListener("change", (event) => {
     if (event.target.checked) {
         isAutoPlayOn = true;
         autoPlayInterval = setInterval(() => {
-            currentIndex = (currentIndex + 1) % images.length;
+            currentIndex = (currentIndex + 1) % images.length
             updateImage()
-        }, 3000);
+        }, 3000)
     } else {
         isAutoPlayOn = false;
         clearInterval(autoPlayInterval)
@@ -135,10 +137,9 @@ formNewImages.addEventListener("submit", function(event) {
     }
 
     images.push(newImage)
-    updateImage();
+    updateImage()
     updateImageList()
 
     formNewImages.classList.add("d-none")
     showFormAddImagesElm.classList.remove("d-none")
 })
-
