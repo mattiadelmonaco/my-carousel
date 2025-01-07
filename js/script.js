@@ -17,12 +17,11 @@ function updateImageList() {
     </li>
     `).join("");
 
-    // Aggiungi eventi di clic per i bottoni
     document.querySelectorAll(".btn-img").forEach(button => {
         button.addEventListener("click", (event) => {
             const index = parseInt(event.currentTarget.getAttribute("data-index"));
-            currentIndex = index; // Aggiorna l'indice corrente
-            updateImage(); // Mostra l'immagine corrispondente
+            currentIndex = index;
+            updateImage();
         });
     });
 }
