@@ -1,3 +1,32 @@
+// FUNCTIONS
+
+function updateImage() {
+    const { nome, img } = images[currentIndex];
+    carouselElm.innerHTML = `
+        <img class="current-image--image" src="${img}" alt="${nome}">
+        <p>${nome}</p>
+    `;
+}
+
+function updateImageList() {
+    imagesListElm.innerHTML = images.map((image, index) => `
+    <li>
+        <button type="button" class="btn-img" data-index="${index}">
+            <img class="opacity" src="${image.img}" alt="${image.nome}">
+        </button>
+    </li>
+    `).join("");
+
+    // Aggiungi eventi di clic per i bottoni
+    document.querySelectorAll(".btn-img").forEach(button => {
+        button.addEventListener("click", (event) => {
+            const index = parseInt(event.currentTarget.getAttribute("data-index"));
+            currentIndex = index; // Aggiorna l'indice corrente
+            updateImage(); // Mostra l'immagine corrispondente
+        });
+    });
+}
+
 // DOM ELEMENTS 
 
 const carouselElm = document.getElementById("carousel")
@@ -11,7 +40,6 @@ const submitAddImagesElm = document.getElementById("submit-add-images")
 const formNewImages = document.getElementById("form-new-images")
 const imgNameElm = document.getElementById("img-name")
 const imgUrlElm = document.getElementById("img-url")
-
 
 // VARIABLES 
 
@@ -51,21 +79,14 @@ const images = [
     }
 ]
 
-
-// FUNCTIONS
-
-function updateImage() {
-    const { nome, img } = images[currentIndex];
-    carouselElm.innerHTML = `
-        <img class="current-image--image" src="${img}" alt="${nome}">
-        <p>"${nome}"</p>
-    `;
-}
-
 // LOGIC 
 
-let currentIndex = 0;
+document.addEventListener("DOMContentLoaded", () => {
+    updateImage()
+    updateImageList()
+});
 
+let currentIndex = 0;
 
 // click arrows
 
@@ -103,7 +124,7 @@ showFormAddImagesElm.addEventListener("click", function() {
 
 // submit new image
 
-submitAddImagesElm.addEventListener("submit", function(event) {
+formNewImages.addEventListener("submit", function(event) {
   event.preventDefault()
 
     const newImgName = imgNameElm.value
@@ -115,8 +136,10 @@ submitAddImagesElm.addEventListener("submit", function(event) {
     }
 
     images.push(newImage)
-    carouselElm.innerHTML += updateImage(newImage)
+    updateImage();
+    updateImageList()
 
     formNewImages.classList.add("d-none")
     showFormAddImagesElm.classList.remove("d-none")
 })
+

@@ -34,9 +34,7 @@
                     <button id="arrow-left" type="button" class="arrow-buttons"><i class="fa-regular fa-circle-left"></i></button>
                 </div>
                 <div id="carousel" class="container-img">
-                    <img class="current-image--image" src="img/fontana piazza garibaldi.jpeg"
-                        alt="fontana Piazza Garibaldi">
-                        <p>Descrizione foto</p>
+                    
                     <div id="selector-images" class="select-on-img">
                         <button class="selector-circle" type="button"></button>
                         <button class="selector-circle" type="button"></button>
@@ -60,60 +58,9 @@
                 <input type="checkbox" value="" id="auto-play">
                 <label for="auto-play">Auto-play</label>
             </div>
-            <div id="images-list">
-                <ul class="img-list">
-                    <li>
-                        <button type="button" class="btn-img">
-                            <img class="opacity" src="img/fontana piazza garibaldi.jpeg" alt="Fontana Piazza Garibaldi">
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="btn-img">
-                            <img src="img/piazza garibaldi giostra cavalleresca.jpeg"
-                                alt="Piazza Garibaldi durante Giostra Cavalleresca">
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="btn-img">
-                            <img src="img/piazza garibaldi vista grande.jpg" alt="Piazza Garibaldi vista grande">
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="btn-img">
-                            <img src="img/giostra cavalleresca vista dall'alto.jpg"
-                                alt="Giostra Cavalleresca vista dall'alto">
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="btn-img">
-                            <img src="img/madonna-che-scappa-7ellb5.jpeg" alt="Madonna che scappa in piazza">
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="btn-img">
-                            <img src="img/Acquedotto-Svevo-di-Sulmona-di-sera.jpg" alt="Acquedotto Svevo Sulmona">
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="btn-img">
-                            <img src="img/fontana del vecchio.jpeg" alt="Fontana Del Vecchio">
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="btn-img">
-                            <img src="img/chiesa santissima annunziata.jpg" alt="Chiesa Santissima Annunziata">
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="btn-img">
-                            <img src="img/piazza XX settembre.jpg" alt="Piazza XX Settembre">
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="btn-img">
-                            <img src="img/villa comunale sulmona.jpg" alt="Villa Comunale Sulmona">
-                        </button>
-                    </li>
+            <div>
+                <ul id="images-list" class="img-list">
+                    
                 </ul>
             </div>
         </section>
@@ -123,9 +70,9 @@
             <button id="show-form-add-images" type="button" class="add-img">Aggiungi Immagine +</button>
             <form id="form-new-images" class="form-add-images d-none">
                 <label for="img-name">Nome immagine</label>
-                <input type="text" id="img-name" required>
+                <input type="text" id="img-name" value="" required>
                 <label for="img-url">URL nuova immagine</label>
-                <input type="text" id="img-url" required>
+                <input type="text" id="img-url" value="" required>
             <button id="submit-add-images" type="submit" class="add-img">Aggiungi Immagine +</button>
             </form>
         </section>
